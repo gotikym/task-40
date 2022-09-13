@@ -1,33 +1,33 @@
-﻿using System;
+using System;
 
 internal class Program
 {
     static void Main(string[] args)
     {
-        Draw draw = new Draw();
+        Renderer draw = new Renderer();
         Player player = new Player(7, 7);
 
-        draw.DrawPlayer(player.X, player.Y);
+        draw.DrawPlayer(player.PlayerPositionX, player.PlayerPositionY);
     }
 }
 
 class Player
 {
-    public int X { get; private set; }
-    public int Y { get; private set; }
+    public int PlayerPositionX { get; private set; }
+    public int PlayerPositionY { get; private set; }
 
-    public Player(int x, int y)
+    public Player(int playerPositionX, int playerPositionY)
     {
-        X = x;
-        Y = y;
+        PlayerPositionX = playerPositionX;
+        PlayerPositionY = playerPositionY;
     }
 }
 
-class Draw
+class Renderer
 {
-    public void DrawPlayer(int x, int y, char simbol = 'Ж')
+    public void DrawPlayer(int playerPositionX, int playerPositionY, char simbol = 'Ж')
     {
-        Console.SetCursorPosition(x, y);
+        Console.SetCursorPosition(playerPositionX, playerPositionY);
         Console.Write(simbol);
     }
 }
