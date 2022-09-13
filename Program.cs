@@ -4,10 +4,10 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        Renderer draw = new Renderer();
+        Renderer renderer = new Renderer();
         Player player = new Player(7, 7);
 
-        draw.DrawPlayer(player.PlayerPositionX, player.PlayerPositionY);
+        renderer.DrawPlayer(player.PlayerPositionX, player.PlayerPositionY);
     }
 }
 
