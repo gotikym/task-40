@@ -5,29 +5,31 @@ internal class Program
     static void Main(string[] args)
     {
         Renderer renderer = new Renderer();
-        Player player = new Player(7, 7);
+        Player player = new Player(7, 7, '@');
 
-        renderer.DrawPlayer(player.PlayerPositionX, player.PlayerPositionY);
+        renderer.Draw(player.PositionX, player.PositionY, player.Avatar);
     }
 }
 
 class Player
 {
-    public int PlayerPositionX { get; private set; }
-    public int PlayerPositionY { get; private set; }
+    public char Avatar { get; private set; }
+    public int PositionX { get; private set; }
+    public int PositionY { get; private set; }
 
-    public Player(int playerPositionX, int playerPositionY)
+    public Player(int positionX, int positionY, char avatar)
     {
-        PlayerPositionX = playerPositionX;
-        PlayerPositionY = playerPositionY;
+        Avatar = avatar;
+        PositionX = positionX;
+        PositionY = positionY;
     }
 }
 
 class Renderer
 {
-    public void DrawPlayer(int playerPositionX, int playerPositionY, char simbol = 'Ж')
+    public void Draw(int positionX, int positionY, char avatar = 'Ж')
     {
-        Console.SetCursorPosition(playerPositionX, playerPositionY);
-        Console.Write(simbol);
+        Console.SetCursorPosition(positionX, positionY);
+        Console.Write(avatar);
     }
 }
